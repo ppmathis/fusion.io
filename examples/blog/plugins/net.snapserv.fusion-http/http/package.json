@@ -1,0 +1,10 @@
+{
+    "name": "fusion-http",
+    "version": "1.0.0",
+    "main": "http.js",
+    "private": true,
+
+    "fusionio": {
+        "exports": [ "http" ]
+    }
+}

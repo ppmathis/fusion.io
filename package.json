@@ -1,0 +1,20 @@
+{
+    "name": "fusion.io",
+    "description": "Fast and lightweight plugin system - everything's a plugin™",
+    "version": "0.1.0",
+    "author": "Pascal Mathis <dev@snapserv.net>",
+    "main": "lib/index.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/NeoXiD/fusion.io.git"
+    },
+    "dependencies": {},
+    "devDependencies": {},
+    "optionalDependencies": {},
+    "licenses": [
+        {
+            "type": "GPLv3",
+            "url": "https://github.com/NeoXiD/fusion.io/raw/master/LICENSE"
+        }
+    ]
+}

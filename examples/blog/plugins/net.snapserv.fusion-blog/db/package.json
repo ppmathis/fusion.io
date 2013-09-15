@@ -1,0 +1,10 @@
+{
+    "name": "fusion-blog-db",
+    "version": "1.0.0",
+    "main": "db.js",
+    "private": true,
+
+    "fusionio": {
+        "exports": [ "database" ]
+    }
+}
