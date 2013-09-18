@@ -8,8 +8,14 @@
         "type": "git",
         "url": "https://github.com/NeoXiD/fusion.io.git"
     },
+    "scripts": {
+        "test": "mocha --color --reporter spec test/"
+    },
     "dependencies": {},
-    "devDependencies": {},
+    "devDependencies": {
+        "mocha": "~1.13.0",
+        "should": "~1.3.0"
+    },
     "optionalDependencies": {},
     "licenses": [
         {
