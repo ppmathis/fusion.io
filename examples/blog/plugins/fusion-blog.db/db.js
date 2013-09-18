@@ -5,6 +5,7 @@
  * License: GPLv3 (Please see LICENSE for more information)
  */
 
+//noinspection ThisExpressionReferencesGlobalObjectJS
 (function() {
     function FusionPlugin(options, imports, exports) {
         var _memoryStorage = {
@@ -17,7 +18,7 @@
         };
 
         exports(null, {
-            database: {
+            'fusion-blog.db': {
                 /**
                  * Gets the specified key from the in-memory database
                  *

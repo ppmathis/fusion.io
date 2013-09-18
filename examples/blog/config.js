@@ -7,12 +7,11 @@
 
 // Because of fusion.io's intelligent dependency resolution, the order doesn't matter at all!
 var exports = module.exports = [
-    'net.snapserv.fusion-blog/model',
-    'net.snapserv.fusion-blog/db',
-    'net.snapserv.fusion-blog/blog',
-
+    'fusion-blog.model',
+    'fusion-blog.db',
+    'fusion-blog.blog',
     {
-        pluginName: 'net.snapserv.fusion-http/http',
+        pluginName: 'fusion-blog.http',
         port: 8080
     }
 ];

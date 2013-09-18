@@ -5,13 +5,18 @@
  * License: GPLv3 (Please see LICENSE for more information)
  */
 
+//noinspection ThisExpressionReferencesGlobalObjectJS
 (function() {
     function FusionPlugin(options, imports, exports) {
+        var $http = imports['fusion-blog.http'];
+        var $model = imports['fusion-blog.model'];
+
         // GET / - Overview of all blog posts
-        imports.http.get('/', function(req, res) {
-            imports.model.post.getPosts(function(posts) {
+        $http.get('/', function(req, res) {
+            $model.post.getPosts(function(posts) {
                 for(var key in posts) {
-                    posts[key].url = '/post/' + key;
+                    if(posts.hasOwnProperty(key))
+                        posts[key].url = '/post/' + key;
                 }
 
                 res.writeHead(200, { 'Content-Type': 'text/plain' });
@@ -20,8 +25,8 @@
         });
 
         // GET /post/[postID] - Displays a single post
-        imports.http.get('/post/([0-9]+)', function(req, res) {
-            imports.model.post.getPost(req.params[0], function(post) {
+        $http.get('/post/([0-9]+)', function(req, res) {
+            $model.post.getPost(req.params[0], function(post) {
                 res.writeHead(200, { 'Content-Type': 'text/plain' });
                 res.end(JSON.stringify(post, false, 4));
             });

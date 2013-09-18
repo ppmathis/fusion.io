@@ -5,10 +5,13 @@
  * License: GPLv3 (Please see LICENSE for more information)
  */
 
+//noinspection ThisExpressionReferencesGlobalObjectJS
 (function() {
     function FusionPlugin(options, imports, exports) {
+        var $db = imports['fusion-blog.db'];
+
         exports(null, {
-            model: {
+            'fusion-blog.model': {
                 /** Post model **/
                 post: {
                     /**
@@ -17,13 +20,13 @@
                      * @param {Function} callback Callback function with signature: function(posts)
                      */
                     getPosts: function(callback) {
-                        imports.db.get('posts', function(posts) {
+                        $db.get('posts', function(posts) {
                             callback(posts);
                         });
                     },
 
                     getPost: function(post, callback) {
-                        imports.db.get('posts', function(posts) {
+                        $db.get('posts', function(posts) {
                             callback(posts[post]);
                         });
                     }

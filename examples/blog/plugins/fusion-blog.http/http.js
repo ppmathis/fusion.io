@@ -5,6 +5,7 @@
  * License: GPLv3 (Please see LICENSE for more information)
  */
 
+//noinspection ThisExpressionReferencesGlobalObjectJS
 (function() {
     var http = require('http');
 
@@ -17,6 +18,7 @@
         var server = http.createServer(function(req, res) {
             // Check if any route matches the request URI
             for(var key in routes) {
+                if(!routes.hasOwnProperty(key)) continue;
                 var route = routes[key];
                 var regExp = req.url.match(route.url);
 
@@ -35,7 +37,7 @@
         console.log('HTTP server listening on port ' + options.port);
 
         exports(null, {
-            http: {
+            'fusion-blog.http': {
                 /**
                  * Adds a new handler for a GET route.
                  *

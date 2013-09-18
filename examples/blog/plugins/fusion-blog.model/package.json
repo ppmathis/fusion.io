@@ -1,0 +1,11 @@
+{
+    "name": "fusion-blog.model",
+    "version": "1.0.0",
+    "main": "model.js",
+    "private": true,
+
+    "fusionio": {
+        "imports": [ "fusion-blog.db" ],
+        "exports": [ "fusion-blog.model" ]
+    }
+}

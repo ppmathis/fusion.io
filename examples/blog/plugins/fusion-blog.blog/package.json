@@ -1,13 +1,13 @@
 {
-    "name": "fusion-blog",
+    "name": "fusion-blog.blog",
     "version": "1.0.0",
     "main": "blog.js",
     "private": true,
 
     "fusionio": {
         "imports": [
-            [ "model", "model" ],
-            [ "http", "net.snapserv.fusion-http/http" ]
+            "fusion-blog.http",
+            "fusion-blog.model"
         ]
     }
 }
