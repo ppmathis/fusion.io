@@ -13,8 +13,8 @@
     },
     "dependencies": {},
     "devDependencies": {
-        "mocha": "~1.13.0",
-        "should": "~1.3.0"
+        "mocha": "1.13.x",
+        "should": "1.3.x"
     },
     "optionalDependencies": {},
     "licenses": [
@@ -22,5 +22,8 @@
             "type": "GPLv3",
             "url": "https://github.com/NeoXiD/fusion.io/raw/master/LICENSE"
         }
-    ]
+    ],
+    "engines": {
+        "node": ">=0.4"
+    }
 }
