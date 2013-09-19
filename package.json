@@ -1,7 +1,7 @@
 {
     "name": "fusion.io",
     "description": "Fast and lightweight plugin system - everything's a plugin™",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "author": "Pascal Mathis <dev@snapserv.net>",
     "main": "lib/index.js",
     "repository": {
