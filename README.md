@@ -94,16 +94,18 @@ As you might have guessed already, it represents your main plugin file, which sh
  * {options} is an object which contains all configuration values (which where specified in the application config)
  * {imports} contains all your imports specified in package.json, with exactly the same name.
  * {exports} This is a function with the signature: function(err, exports).
- *            If an error occured while initialitzing the plugin, pass the error to err.
- *            If everything went fine, pass an object containing functions to exports.
+ *            If an error occured while initializing the plugin, pass the error to err.
+ *            If everything went fine, pass an object containing the plugins to export.
  */
 function FusionPlugin(options, imports, exports) {
   var $db = imports['fusion-blog.db'];
   var $milk = imports['fusion-example.kitten-milk'];
   
   exports(null, {
-    meow: function(hello, world) {
-      return $milk.mixWithChocolate($db.fetchMilk());
+    'fusion-example.kitten': {
+      meow: function(hello, world) {
+        return $milk.mixWithChocolate($db.fetchMilk());
+      }
     }
   });
 }
