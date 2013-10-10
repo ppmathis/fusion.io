@@ -65,7 +65,7 @@ a logging plugin with another one? Just edit the package.json to point to the ne
 ```js
 {
     "name": "fusion-example.kitten-demo",   // Optional metadata, can be used with NPM
-    "version": "1.0.0",     // Optional metadata, can be used with NPM
+    "version": "1.0.0",     // Should always be specified! Otherwise fusion.io will log a warning.
     "main": "kitten.js",    // Must point to the main plugin file
     "private": true,        // Optional metadata, can be used with NPM
 
@@ -92,14 +92,17 @@ As you might have guessed already, it represents your main plugin file, which sh
 /**
  * This method gets called by the fusion.io core. There will always be exactly 3 arguments provided.
  * {options} is an object which contains all configuration values (which where specified in the application config)
- * {imports} contains all your imports specified in package.json, with exactly the same name.
+ * {imports} This is a function which returns any import specified in package.json. If the import does not
+              exist, an error will be thrown. Signature: function(pluginName)
  * {exports} This is a function with the signature: function(err, exports).
  *            If an error occured while initializing the plugin, pass the error to err.
  *            If everything went fine, pass an object containing the plugins to export.
+ * {fusion}  Optional parameter, contains an object with some functions to control FusionIO. Currently, only
+ *            the function 'fetchPluginList' is supported, which will return a list of all plugins with their versions.
  */
-function FusionPlugin(options, imports, exports) {
-  var $db = imports['fusion-blog.db'];
-  var $milk = imports['fusion-example.kitten-milk'];
+function FusionPlugin(options, imports, exports, fusion) {
+  var $db = imports('fusion-blog.db');
+  var $milk = imports('fusion-example.kitten-milk');
   
   exports(null, {
     'fusion-example.kitten': {
@@ -108,6 +111,9 @@ function FusionPlugin(options, imports, exports) {
       }
     }
   });
+
+  console.log('This cute example is powered by these plugins: ');
+  console.log(fusion.fetchPluginList());
 }
 
 // Exports the plugin

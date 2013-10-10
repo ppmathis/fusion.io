@@ -7,9 +7,9 @@
 
 //noinspection ThisExpressionReferencesGlobalObjectJS
 (function() {
-    function FusionPlugin(options, imports, exports) {
-        var $http = imports['fusion-blog.http'];
-        var $model = imports['fusion-blog.model'];
+    function FusionPlugin(options, imports, exports, fusion) {
+        var $http = imports('fusion-blog.http');
+        var $model = imports('fusion-blog.model');
 
         // GET / - Overview of all blog posts
         $http.get('/', function(req, res) {
@@ -31,6 +31,9 @@
                 res.end(JSON.stringify(post, false, 4));
             });
         });
+
+        console.log('This little blog example is powered by the following plugins: ');
+        console.log(fusion.fetchPluginList());
     }
 
     // Exports the plugin

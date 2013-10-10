@@ -8,7 +8,7 @@
 //noinspection ThisExpressionReferencesGlobalObjectJS
 (function() {
     function FusionPlugin(options, imports, exports) {
-        var $db = imports['fusion-blog.db'];
+        var $db = imports('fusion-blog.db');
 
         exports(null, {
             'fusion-blog.model': {
